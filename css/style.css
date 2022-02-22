@@ -1,0 +1,241 @@
+:root {
+  --color-black: #181818;
+  --color-light-black: #202020;
+  --color-white: #e5e5e5;
+  --color-green: #649c5b;
+  --sticker-green: #09ef00;
+  --sticker-yellow: #ffff00;
+  --sticker-pink: #fd008e;
+  --sticker-orange: #ff4c0b;
+}
+
+/* soft reset css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: StickyNotes;
+  src: url("../fonts/StickyNotes.otf");
+}
+
+html {
+  /* a cada 1rem será considera 10px */
+  font-size: 62.5%;
+}
+
+html,
+body {
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  /* font-family: "Fira Code", monospace; */
+  font-family: "Fira Sans", sans-serif;
+  padding-top: 6rem;
+}
+
+header {
+  background-color: var(--color-light-black);
+}
+
+header .header-container {
+  display: flex;
+  justify-content: center;
+}
+
+header .logo {
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+header .logo img {
+  filter: drop-shadow(0 0.4rem 0.4rem #0000002f);
+}
+
+header .logo h2 {
+  font-family: "Fira Sans", sans-serif;
+  /* font-family: "Fira Code", monospace; */
+  /* font-family: "Ubuntu", sans-serif; */
+  font-weight: normal;
+  color: var(--color-green);
+  font-size: 2rem;
+}
+
+header .logo h2 span {
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+.sticker-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sticker {
+  background-color: var(--sticker-yellow);
+  width: 60rem;
+  height: 10rem;
+  margin: 2rem 0 0.5rem;
+  clip-path: polygon(0% 0%, 89.5% 0%, 100% 50%, 89.5% 100%, 0% 100%);
+  filter: drop-shadow(0 0.4rem 0.4rem #0000002f);
+
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.sticker-text {
+  width: 70%;
+  height: 75%;
+  background: none;
+  border: none;
+  outline: none;
+  color: #454545;
+  font-family: "StickyNotes", cursive;
+  font-size: 3rem;
+}
+
+.sticker-color {
+  width: 60rem;
+  height: 4rem;
+  gap: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.sticker-text::placeholder {
+  color: var(--color-light-black);
+  opacity: 0.5;
+}
+
+.pink::placeholder {
+  color: var(--color-white);
+  opacity: 0.6;
+}
+
+.color-container {
+  height: 100%;
+  width: 12rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sticker-color .color-container .color-one {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--sticker-green);
+  border-radius: 50%;
+  border: 0.2rem solid var(--color-white);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.sticker-color .color-container .color-two {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--sticker-pink);
+  border-radius: 50%;
+  border: 0.2rem solid var(--color-white);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.sticker-color .color-container .color-three {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--sticker-yellow);
+  border-radius: 50%;
+  border: 0.2rem solid var(--color-white);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.color-container .color-one:hover,
+.color-container .color-two:hover,
+.color-container .color-three:hover {
+  width: 3rem;
+  height: 3rem;
+  border: 0.2rem solid var(--color-light-black);
+}
+
+.color-text {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.add {
+  width: 30%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.add-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border: none;
+  margin: 2rem 0 1rem;
+
+  background: none;
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+.new {
+  background-color: var(--color-light-black);
+  filter: drop-shadow(0 0.4rem 0.4rem #0000002f);
+  padding: 0.7rem 1.4rem 0.7rem 1rem;
+  transform: translateX(5%);
+  transition: 0.3s ease;
+}
+
+.new:hover {
+  color: var(--color-green);
+}
+
+.pen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--sticker-orange);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  filter: drop-shadow(0 0.4rem 0.4rem #0000002f);
+  transition: 0.3s ease;
+}
+
+.pen:hover {
+  width: 6rem;
+  height: 6rem;
+}
+
+.add-btn img {
+  width: 2rem;
+}
