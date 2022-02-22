@@ -5,14 +5,25 @@ const stickerColorOne = document.querySelector(".color-one");
 const stickerColorTwo = document.querySelector(".color-two");
 const stickerColorThree = document.querySelector(".color-three");
 
+const addStickerBtn = document.querySelector(".add-btn");
+const stickerContainer = document.querySelector(".sticker-container");
+
+let show = false;
+
+addStickerBtn.addEventListener("click", function () {
+  stickerContainer.classList.toggle("hide", show);
+  show = !show;
+});
+
 function stickerColorSelector(event) {
   let colors = {
     one: "#09ef00",
     two: "#fd008e",
     three: "#ffff00",
     textOne: "#e5e5e5",
-    textTwo: "#202020",
+    textTwo: "#404040",
   };
+
   if (event.target.className === "color-one") {
     sticker.style.backgroundColor = colors.one;
     stickerInput.style.color = colors.textTwo;

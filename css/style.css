@@ -3,6 +3,9 @@
   --color-light-black: #202020;
   --color-white: #e5e5e5;
   --color-green: #649c5b;
+  --color-green-dark: #4b8343;
+  --color-red: #d31844;
+  --color-red-dark: #aa1d3e;
   --sticker-green: #09ef00;
   --sticker-yellow: #ffff00;
   --sticker-pink: #fd008e;
@@ -90,6 +93,10 @@ header .logo h2 span {
   flex-direction: column;
 }
 
+.hide {
+  display: none;
+}
+
 .sticker {
   background-color: var(--sticker-yellow);
   width: 60rem;
@@ -114,13 +121,66 @@ header .logo h2 span {
   font-size: 3rem;
 }
 
+.color-control {
+  display: flex;
+}
+
 .sticker-color {
-  width: 60rem;
+  width: 30rem;
   height: 4rem;
   gap: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+
+.sticker-control {
+  width: 30rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.sticker-control button {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0 0.5rem 0 1rem;
+  border: none;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  filter: drop-shadow(0 0.4rem 0.4rem #0000002f);
+}
+
+.cancel {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  transition: 0.3s ease;
+}
+
+.pin {
+  background-color: var(--color-green);
+  color: var(--color-white);
+  transition: 0.3s ease;
+}
+
+.pin:hover {
+  background-color: var(--color-green-dark);
+}
+
+.cancel:hover {
+  background-color: var(--color-red-dark);
+}
+
+.sticker-control button img {
+  width: 2.5rem;
+  filter: drop-shadow(0 0.4rem 0.4rem #0000002f);
 }
 
 .sticker-text::placeholder {
