@@ -98,7 +98,7 @@ header .logo h2 span {
 }
 
 .sticker {
-  background-color: var(--sticker-yellow);
+  background-color: var(--color-white);
   width: 60rem;
   height: 10rem;
   margin: 2rem 0 0.5rem;
@@ -148,12 +148,12 @@ header .logo h2 span {
   display: flex;
   align-items: center;
   gap: 0.3rem;
-  padding: 0 0.5rem 0 1rem;
+  padding: 0 0.75rem 0 0.75rem;
   border: none;
   font-family: "Fira Sans", sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   cursor: pointer;
   filter: drop-shadow(0 0.4rem 0.4rem #0000002f);
 }
@@ -246,7 +246,8 @@ header .logo h2 span {
 
 .add {
   position: fixed;
-  right: 20%;
+  right: 25%;
+  margin-top: 3rem;
 }
 
 .add-btn {

@@ -8,11 +8,17 @@ const stickerColorThree = document.querySelector(".color-three");
 const addStickerBtn = document.querySelector(".add-btn");
 const stickerContainer = document.querySelector(".sticker-container");
 
+const cancelBtn = document.querySelector(".cancel");
+const pinBtn = document.querySelector(".pin");
+
 let show = false;
 
 addStickerBtn.addEventListener("click", function () {
   stickerContainer.classList.toggle("hide", show);
-  show = !show;
+});
+
+cancelBtn.addEventListener("click", function () {
+  stickerContainer.classList.toggle("hide", !show);
 });
 
 function stickerColorSelector(event) {
