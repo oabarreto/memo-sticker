@@ -84,6 +84,63 @@ header .logo h2 span {
   font-weight: bold;
 }
 
+.sticker-list-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit {
+  background-color: var(--color-green);
+}
+
+.delete {
+  background-color: var(--color-red);
+}
+
+.edit:hover {
+  background-color: var(--color-green-dark);
+}
+
+.delete:hover {
+  background-color: var(--color-red-dark);
+}
+
+.sticker-list-container .sticker-control {
+  gap: 1rem;
+  width: auto;
+  margin-left: 2rem;
+}
+
+.sticker-control .edit,
+.sticker-control .delete {
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 0.75rem 0 0.75rem;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  filter: none;
+  outline: none;
+  filter: drop-shadow(0 0.4rem 0.4rem #0000002f);
+}
+
+.sticker-control .edit img {
+  filter: none;
+  width: 70%;
+}
+
+.sticker-control .delete img {
+  filter: none;
+  width: 100%;
+}
+
 .sticker-container {
   width: 100%;
   margin: 0 auto;
@@ -91,6 +148,37 @@ header .logo h2 span {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: var(--color-light-black);
+  padding-bottom: 2rem;
+}
+
+.sticker-item {
+  background-color: var(--color-white);
+  width: 60rem;
+  height: 10rem;
+  margin: 2rem 0 0.5rem;
+  clip-path: polygon(0% 0%, 89.5% 0%, 100% 50%, 89.5% 100%, 0% 100%);
+  filter: drop-shadow(0 0.4rem 0.4rem #0000002f);
+
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.sticker-item-text {
+  width: 70%;
+  height: 75%;
+  background: none;
+  border: none;
+  outline: none;
+  color: #454545;
+  font-family: "StickyNotes", cursive;
+  font-size: 3rem;
+}
+
+.sticker-item span {
+  display: flex;
+  align-items: center;
 }
 
 .hide {

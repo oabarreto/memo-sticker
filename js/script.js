@@ -1,5 +1,5 @@
 const sticker = document.querySelector(".sticker");
-const stickerInput = document.querySelector(".sticker-text");
+const stickerInput = document.querySelector("#input-sticker");
 
 const stickerColorOne = document.querySelector(".color-one");
 const stickerColorTwo = document.querySelector(".color-two");
@@ -10,6 +10,8 @@ const stickerContainer = document.querySelector(".sticker-container");
 
 const cancelBtn = document.querySelector(".cancel");
 const pinBtn = document.querySelector(".pin");
+
+const stickerList = document.querySelector(".sticker-list");
 
 let show = false;
 
@@ -52,3 +54,58 @@ function stickerColorSelector(event) {
 stickerColorOne.addEventListener("click", stickerColorSelector);
 stickerColorTwo.addEventListener("click", stickerColorSelector);
 stickerColorThree.addEventListener("click", stickerColorSelector);
+
+stickerInput.addEventListener("keypress", function (event) {
+  if (event.keyCode === 13 && stickerInput.value.length > 0) {
+    let task = {
+      name: stickerInput.value,
+      id: createId(),
+    };
+    newTask(task);
+  }
+});
+
+pinBtn.addEventListener("click", function (event) {
+  if (stickerInput.value.length > 0) {
+    let task = {
+      name: stickerInput.value,
+      id: createId(),
+    };
+
+    newTask(task);
+  }
+});
+
+function createId() {
+  return Math.floor(Math.random() * 999999);
+}
+
+function newTask(task) {
+  let stickerItem = document.createElement("div");
+  stickerItem.classList.add("sticker-item");
+
+  let stickerItemText = document.createElement("span");
+  stickerItemText.classList.add("sticker-item-text");
+  stickerItemText.innerHTML = task.name;
+
+  let stickerControl = document.createElement("div");
+  stickerControl.classList.add("sticker-control");
+
+  let editBtn = document.createElement("button");
+  editBtn.classList.add("edit");
+  editBtn.innerHTML = '<img src="./assets/pencil.svg" alt="Pin Icon" />';
+
+  let deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("delete");
+  deleteBtn.innerHTML = '<img src="./assets/trash.svg" alt="Cancel Icon" />';
+
+  stickerControl.appendChild(editBtn);
+  stickerControl.appendChild(deleteBtn);
+
+  stickerItem.appendChild(stickerItemText);
+  stickerItem.appendChild(stickerControl);
+
+  stickerList.appendChild(stickerItem);
+
+  stickerInput.value = "";
+}
