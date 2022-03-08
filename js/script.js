@@ -68,8 +68,8 @@ stickerInput.addEventListener("keypress", function (event) {
       id: createId(),
     };
     newTask(task);
-  } else {
-    warning.classList.add("hide");
+  } else if (event.keyCode === 13) {
+    warning.classList.remove("hide");
   }
 });
 
@@ -127,5 +127,9 @@ stickerInput.addEventListener("click", function (event) {
 });
 
 stickerInput.addEventListener("focus", function (event) {
+  warning.classList.add("hide");
+});
+
+stickerInput.addEventListener("keydown", function (event) {
   warning.classList.add("hide");
 });
