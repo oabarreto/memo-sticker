@@ -13,6 +13,8 @@ const pinBtn = document.querySelector(".pin");
 
 const stickerList = document.querySelector(".sticker-list");
 
+const warning = document.querySelector(".warning");
+
 let show = false;
 
 addStickerBtn.addEventListener("click", function () {
@@ -21,6 +23,8 @@ addStickerBtn.addEventListener("click", function () {
 
 cancelBtn.addEventListener("click", function () {
   stickerContainer.classList.toggle("hide", !show);
+  warning.classList.add("hide");
+  stickerInput.value = "";
 });
 
 function stickerColorSelector(event) {
@@ -57,22 +61,30 @@ stickerColorThree.addEventListener("click", stickerColorSelector);
 
 stickerInput.addEventListener("keypress", function (event) {
   if (event.keyCode === 13 && stickerInput.value.length > 0) {
+    warning.classList.add("hide");
+
     let task = {
       name: stickerInput.value,
       id: createId(),
     };
     newTask(task);
+  } else {
+    warning.classList.add("hide");
   }
 });
 
 pinBtn.addEventListener("click", function (event) {
   if (stickerInput.value.length > 0) {
+    warning.classList.add("hide");
+
     let task = {
       name: stickerInput.value,
       id: createId(),
     };
 
     newTask(task);
+  } else {
+    warning.classList.remove("hide");
   }
 });
 
@@ -109,3 +121,11 @@ function newTask(task) {
 
   stickerInput.value = "";
 }
+
+stickerInput.addEventListener("click", function (event) {
+  warning.classList.add("hide");
+});
+
+stickerInput.addEventListener("focus", function (event) {
+  warning.classList.add("hide");
+});

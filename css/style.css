@@ -244,6 +244,7 @@ header .logo h2 span {
   border-radius: 0.5rem;
   cursor: pointer;
   filter: drop-shadow(0 0.4rem 0.4rem #0000002f);
+  outline: none;
 }
 
 .cancel {
@@ -332,6 +333,19 @@ header .logo h2 span {
   font-size: 1.2rem;
 }
 
+.warning-container {
+  height: 3rem;
+  display: flex;
+  align-items: flex-end;
+}
+
+.warning {
+  font-size: 1.2rem;
+  font-style: italic;
+  width: 60rem;
+  color: var(--color-red);
+}
+
 .add {
   position: fixed;
   right: 25%;
@@ -348,6 +362,7 @@ header .logo h2 span {
   background: none;
   color: var(--color-white);
   cursor: pointer;
+  outline: none;
 }
 
 .new {
