@@ -1,3 +1,5 @@
+let stickerContents = [];
+
 const sticker = document.querySelector(".sticker");
 const stickerInput = document.querySelector("#input-sticker");
 
@@ -64,7 +66,7 @@ stickerInput.addEventListener("keypress", function (event) {
     warning.classList.add("hide");
 
     let task = {
-      name: stickerInput.value,
+      description: stickerInput.value,
       id: createId(),
     };
     newTask(task);
@@ -78,11 +80,13 @@ pinBtn.addEventListener("click", function (event) {
     warning.classList.add("hide");
 
     let task = {
-      name: stickerInput.value,
+      description: stickerInput.value,
       id: createId(),
     };
 
     newTask(task);
+
+    stickerContents.push(task);
   } else {
     warning.classList.remove("hide");
   }
@@ -95,23 +99,37 @@ function createId() {
 function newTask(task) {
   let stickerItem = document.createElement("div");
   stickerItem.classList.add("sticker-item");
+  stickerItem.id = task.id;
+
+  let taskId = stickerItem.id;
 
   let stickerItemText = document.createElement("span");
   stickerItemText.classList.add("sticker-item-text");
-  stickerItemText.innerHTML = task.name;
+  stickerItemText.innerHTML = task.description;
 
   let stickerControl = document.createElement("div");
   stickerControl.classList.add("sticker-control");
 
-  let editBtn = document.createElement("button");
-  editBtn.classList.add("edit");
-  editBtn.innerHTML = '<img src="./assets/pencil.svg" alt="Pin Icon" />';
+  let doneBtn = document.createElement("button");
+  doneBtn.classList.add("done");
+  doneBtn.innerHTML = '<img src="./assets/done.svg" alt="Pin Icon" />';
+
+  doneBtn.addEventListener("click", function (event) {
+    stickerItemText.style.textDecoration = "line-through";
+  });
 
   let deleteBtn = document.createElement("button");
   deleteBtn.classList.add("delete");
   deleteBtn.innerHTML = '<img src="./assets/trash.svg" alt="Cancel Icon" />';
 
-  stickerControl.appendChild(editBtn);
+  deleteBtn.addEventListener("click", function (taskId) {
+    let stickerItemCreated = document.getElementById("#" + taskId);
+    if (stickerItemCreated) {
+      stickerItem.removeChild(div);
+    }
+  });
+
+  stickerControl.appendChild(doneBtn);
   stickerControl.appendChild(deleteBtn);
 
   stickerItem.appendChild(stickerItemText);

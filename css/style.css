@@ -92,7 +92,7 @@ header .logo h2 span {
   align-items: center;
 }
 
-.edit {
+.done {
   background-color: var(--color-green);
 }
 
@@ -100,7 +100,7 @@ header .logo h2 span {
   background-color: var(--color-red);
 }
 
-.edit:hover {
+.done:hover {
   background-color: var(--color-green-dark);
 }
 
@@ -114,7 +114,7 @@ header .logo h2 span {
   margin-left: 2rem;
 }
 
-.sticker-control .edit,
+.sticker-control .done,
 .sticker-control .delete {
   height: 4rem;
   width: 4rem;
@@ -131,9 +131,9 @@ header .logo h2 span {
   filter: drop-shadow(0 0.4rem 0.4rem #0000002f);
 }
 
-.sticker-control .edit img {
+.sticker-control .done img {
   filter: none;
-  width: 70%;
+  width: 90%;
 }
 
 .sticker-control .delete img {
