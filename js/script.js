@@ -124,8 +124,8 @@ function newTask(task) {
 
   deleteBtn.addEventListener("click", function (taskId) {
     let stickerItemCreated = document.getElementById("#" + taskId);
-    if (stickerItemCreated) {
-      stickerItem.removeChild(div);
+    if (stickerItem) {
+      stickerList.removeChild(stickerItem);
     }
   });
 
