@@ -1,5 +1,10 @@
 let stickerContents = [];
 
+let defaultStickerColors = {
+  sticker: "#e5e5e5",
+  text: "#404040",
+};
+
 const sticker = document.querySelector(".sticker");
 const stickerInput = document.querySelector("#input-sticker");
 
@@ -73,7 +78,10 @@ stickerInput.addEventListener("keypress", function (event) {
     newTask(task);
 
     stickerContents.push(task);
-  } else if (event.keyCode === 13) {
+
+    sticker.style.backgroundColor = defaultStickerColors.sticker;
+    stickerInput.style.color = defaultStickerColors.text;
+  } else if (event.keyCode === 13 || stickerInput.value.length === 10) {
     warning.classList.remove("hide");
   }
 });
@@ -92,8 +100,20 @@ pinBtn.addEventListener("click", function (event) {
     newTask(task);
 
     stickerContents.push(task);
+
+    sticker.style.backgroundColor = defaultStickerColors.sticker;
+    stickerInput.style.color = defaultStickerColors.text;
   } else {
     warning.classList.remove("hide");
+  }
+});
+
+stickerInput.addEventListener("input", function () {
+  if (stickerInput.value.length === 10) {
+    warning.innerText = "Máximo de 42 Caracteres";
+    warning.classList.remove("hide");
+  } else {
+    warning.innerText = "Escreva no minimo um character para criar um sticker.";
   }
 });
 
@@ -162,8 +182,6 @@ stickerInput.addEventListener("keydown", function (event) {
 });
 
 function deleteTaskFromStickerContents(element) {
-  console.log(element);
-
   stickerContents = stickerContents.filter(
     (task) => task.id != element.getAttribute("id")
   );
