@@ -56,7 +56,6 @@ function stickerColorSelector(event) {
     stickerInput.classList.remove("pink");
   }
 }
-
 stickerColorOne.addEventListener("click", stickerColorSelector);
 stickerColorTwo.addEventListener("click", stickerColorSelector);
 stickerColorThree.addEventListener("click", stickerColorSelector);
@@ -68,6 +67,8 @@ stickerInput.addEventListener("keypress", function (event) {
     let task = {
       description: stickerInput.value,
       id: createId(),
+      colorSticker: chooseStickerColor(),
+      colorText: chooseTextStickerColor(),
     };
     newTask(task);
 
@@ -84,6 +85,8 @@ pinBtn.addEventListener("click", function (event) {
     let task = {
       description: stickerInput.value,
       id: createId(),
+      colorSticker: chooseStickerColor(),
+      colorText: chooseTextStickerColor(),
     };
 
     newTask(task);
@@ -102,12 +105,14 @@ function newTask(task) {
   let stickerItem = document.createElement("div");
   stickerItem.classList.add("sticker-item");
   stickerItem.id = task.id;
+  stickerItem.style = task.colorSticker;
 
   let taskId = stickerItem.id;
 
   let stickerItemText = document.createElement("span");
   stickerItemText.classList.add("sticker-item-text");
   stickerItemText.innerHTML = task.description;
+  stickerItemText.style = task.colorText;
 
   let stickerControl = document.createElement("div");
   stickerControl.classList.add("sticker-control");
@@ -162,4 +167,12 @@ function deleteTaskFromStickerContents(element) {
   stickerContents = stickerContents.filter(
     (task) => task.id != element.getAttribute("id")
   );
+}
+
+function chooseStickerColor() {
+  return sticker.getAttribute("style");
+}
+
+function chooseTextStickerColor() {
+  return stickerInput.getAttribute("style");
 }
