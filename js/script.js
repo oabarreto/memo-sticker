@@ -70,6 +70,8 @@ stickerInput.addEventListener("keypress", function (event) {
       id: createId(),
     };
     newTask(task);
+
+    stickerContents.push(task);
   } else if (event.keyCode === 13) {
     warning.classList.remove("hide");
   }
@@ -126,6 +128,8 @@ function newTask(task) {
     let stickerItemCreated = document.getElementById("#" + taskId);
     if (stickerItem) {
       stickerList.removeChild(stickerItem);
+
+      deleteTaskFromStickerContents(stickerItem);
     }
   });
 
@@ -151,3 +155,11 @@ stickerInput.addEventListener("focus", function (event) {
 stickerInput.addEventListener("keydown", function (event) {
   warning.classList.add("hide");
 });
+
+function deleteTaskFromStickerContents(element) {
+  console.log(element);
+
+  stickerContents = stickerContents.filter(
+    (task) => task.id != element.getAttribute("id")
+  );
+}
