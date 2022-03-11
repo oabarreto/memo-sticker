@@ -75,13 +75,13 @@ stickerInput.addEventListener("keypress", function (event) {
       colorSticker: chooseStickerColor(),
       colorText: chooseTextStickerColor(),
     };
-    newTask(task);
 
     stickerContents.push(task);
+    updateScreen();
 
     sticker.style.backgroundColor = defaultStickerColors.sticker;
     stickerInput.style.color = defaultStickerColors.text;
-  } else if (event.keyCode === 13 || stickerInput.value.length === 10) {
+  } else if (event.keyCode === 13 || stickerInput.value.length === 42) {
     warning.classList.remove("hide");
   }
 });
@@ -97,9 +97,8 @@ pinBtn.addEventListener("click", function (event) {
       colorText: chooseTextStickerColor(),
     };
 
-    newTask(task);
-
     stickerContents.push(task);
+    updateScreen();
 
     sticker.style.backgroundColor = defaultStickerColors.sticker;
     stickerInput.style.color = defaultStickerColors.text;
@@ -109,7 +108,7 @@ pinBtn.addEventListener("click", function (event) {
 });
 
 stickerInput.addEventListener("input", function () {
-  if (stickerInput.value.length === 10) {
+  if (stickerInput.value.length === 42) {
     warning.innerText = "Máximo de 42 Caracteres";
     warning.classList.remove("hide");
   } else {
@@ -193,4 +192,8 @@ function chooseStickerColor() {
 
 function chooseTextStickerColor() {
   return stickerInput.getAttribute("style");
+}
+
+function updateScreen() {
+  stickerContents.forEach((task) => newTask(task));
 }
