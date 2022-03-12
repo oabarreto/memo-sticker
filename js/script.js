@@ -77,7 +77,6 @@ stickerInput.addEventListener("keypress", function (event) {
     };
 
     stickerContents.push(task);
-    updateScreen();
 
     sticker.style.backgroundColor = defaultStickerColors.sticker;
     stickerInput.style.color = defaultStickerColors.text;
@@ -98,7 +97,8 @@ pinBtn.addEventListener("click", function (event) {
     };
 
     stickerContents.push(task);
-    updateScreen();
+
+    newTask(task);
 
     sticker.style.backgroundColor = defaultStickerColors.sticker;
     stickerInput.style.color = defaultStickerColors.text;
@@ -192,8 +192,4 @@ function chooseStickerColor() {
 
 function chooseTextStickerColor() {
   return stickerInput.getAttribute("style");
-}
-
-function updateScreen() {
-  stickerContents.forEach((task) => newTask(task));
 }
