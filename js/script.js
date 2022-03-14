@@ -1,5 +1,7 @@
 let stickerContents = [];
 
+let dataBase = window.localStorage;
+
 let defaultStickerColors = {
   sticker: "#e5e5e5",
   text: "#404040",
@@ -74,9 +76,13 @@ stickerInput.addEventListener("keypress", function (event) {
       id: createId(),
       colorSticker: chooseStickerColor(),
       colorText: chooseTextStickerColor(),
+      status: "",
     };
 
     stickerContents.push(task);
+    newTask(task);
+
+    saveData();
 
     sticker.style.backgroundColor = defaultStickerColors.sticker;
     stickerInput.style.color = defaultStickerColors.text;
@@ -94,11 +100,13 @@ pinBtn.addEventListener("click", function (event) {
       id: createId(),
       colorSticker: chooseStickerColor(),
       colorText: chooseTextStickerColor(),
+      status: "",
     };
 
     stickerContents.push(task);
-
     newTask(task);
+
+    saveData();
 
     sticker.style.backgroundColor = defaultStickerColors.sticker;
     stickerInput.style.color = defaultStickerColors.text;
@@ -133,6 +141,10 @@ function newTask(task) {
   stickerItemText.innerHTML = task.description;
   stickerItemText.style = task.colorText;
 
+  if (task.status === "done") {
+    stickerItemText.style.textDecoration = "line-through";
+  }
+
   let stickerControl = document.createElement("div");
   stickerControl.classList.add("sticker-control");
 
@@ -142,6 +154,8 @@ function newTask(task) {
 
   doneBtn.addEventListener("click", function (event) {
     stickerItemText.style.textDecoration = "line-through";
+    task.status = "done";
+    saveData();
   });
 
   let deleteBtn = document.createElement("button");
@@ -154,6 +168,8 @@ function newTask(task) {
       stickerList.removeChild(stickerItem);
 
       deleteTaskFromStickerContents(stickerItem);
+
+      saveData();
     }
   });
 
@@ -193,3 +209,19 @@ function chooseStickerColor() {
 function chooseTextStickerColor() {
   return stickerInput.getAttribute("style");
 }
+
+function saveData() {
+  dataBase.setItem("tasks", JSON.stringify(stickerContents));
+}
+
+function loadData() {
+  let data = dataBase.getItem("tasks");
+  if (data) {
+    stickerContents = JSON.parse(data);
+  }
+}
+
+onload = function () {
+  loadData();
+  stickerContents.forEach((task) => newTask(task));
+};
