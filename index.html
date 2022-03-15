@@ -43,11 +43,21 @@
       </div>
     </header>
     <main>
+      <section class="add">
+        <a href="#sticker-input">
+          <button class="add-btn">
+            <span class="new">Sticker</span>
+            <span class="pen"
+              ><img src="./assets/pencil.svg" alt="Pencil Icon"
+            /></span>
+          </button>
+        </a>
+      </section>
       <section class="sticker-list-container">
         <div class="sticker-list"></div>
       </section>
 
-      <section class="sticker-container hide">
+      <section id="sticker-input" class="sticker-container hide">
         <div class="sticker">
           <input
             id="input-sticker"
@@ -81,15 +91,33 @@
           <span class="warning hide"></span>
         </div>
       </section>
-      <section class="add">
-        <button class="add-btn">
-          <span class="new">Novo Sticker</span>
-          <span class="pen"
-            ><img src="./assets/pencil.svg" alt="Pencil Icon"
-          /></span>
-        </button>
-      </section>
     </main>
+    <footer>
+      <footer>
+        <section>
+          <div class="dev-box">
+            <p class="dev">
+              Developed By <span class="me"> Otávio Barreto</span>
+            </p>
+          </div>
+          <div class="icon-container">
+            <a
+              title="GitHub"
+              class="link-icon"
+              target="_blank"
+              href="https://github.com/oabarreto"
+              ><i class="fab fa-github-square"></i></a
+            ><a
+              title="Linkedin"
+              class="link-icon"
+              target="_blank"
+              href="https://www.linkedin.com/in/oabarreto/"
+              ><i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </section>
+      </footer>
+    </footer>
     <script src="./js/script.js"></script>
   </body>
 </html>
