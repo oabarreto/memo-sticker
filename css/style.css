@@ -462,6 +462,101 @@ footer section {
   color: var(--color-white);
 }
 
+@media screen and (max-width: 510px) {
+  header .logo {
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  header .logo img {
+    width: 85%;
+  }
+
+  header .logo h2 {
+    font-size: 1.3rem;
+  }
+
+  .add {
+    width: 45rem;
+    padding-right: 0rem;
+  }
+
+  .sticker {
+    width: 45rem;
+    height: 9rem;
+    clip-path: polygon(0% 0%, 85.5% 0%, 100% 50%, 85.5% 100%, 0% 100%);
+  }
+
+  .sticker-item {
+    width: 45rem;
+    height: 9rem;
+    clip-path: polygon(0% 0%, 85.5% 0%, 100% 50%, 85.5% 100%, 0% 100%);
+  }
+
+  .sticker-color {
+    width: 22.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .color-container {
+    width: auto;
+  }
+
+  .sticker-list-container .sticker-control {
+    margin: 0;
+  }
+
+  .sticker-control {
+    width: 22.5rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .sticker-control button {
+    font-size: 1.2rem;
+    height: 2.75rem;
+    padding: 0 0.5rem 0 0.5rem;
+  }
+
+  .sticker-control button img {
+    width: 1.75rem;
+  }
+
+  .warning-container {
+    width: 100%;
+    padding-left: 3rem;
+    margin-top: 1rem;
+  }
+
+  .sticker-control .done {
+    height: 3.25rem;
+    width: 3.25rem;
+  }
+
+  .sticker-control .delete {
+    height: 3.25rem;
+    width: 3.25rem;
+  }
+
+  .sticker-item-text {
+    align-items: none;
+    font-size: 2.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .sticker-item span {
+    display: block;
+    transform: translateY(25%);
+  }
+}
+
 @media screen and (max-width: 425px) {
   header .logo {
     padding: 3rem 0;
