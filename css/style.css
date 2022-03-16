@@ -558,6 +558,13 @@ footer section {
   }
 }
 
+@media screen and (max-width: 393px) {
+  .add {
+    width: 35rem;
+    padding-right: 0;
+  }
+}
+
 @media screen and (max-width: 375px) {
   .add {
     width: 35rem;
