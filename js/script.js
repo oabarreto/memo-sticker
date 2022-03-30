@@ -63,6 +63,7 @@ function stickerColorSelector(event) {
     stickerInput.classList.remove("pink");
   }
 }
+
 stickerColorOne.addEventListener("click", stickerColorSelector);
 stickerColorTwo.addEventListener("click", stickerColorSelector);
 stickerColorThree.addEventListener("click", stickerColorSelector);
@@ -117,10 +118,11 @@ pinBtn.addEventListener("click", function (event) {
 
 stickerInput.addEventListener("input", function () {
   if (stickerInput.value.length === 42) {
-    warning.innerText = "Máximo de 42 Caracteres";
+    warning.textContent = "Máximo de 42 Caracteres";
     warning.classList.remove("hide");
   } else {
-    warning.innerText = "Escreva no minimo um character para criar um sticker.";
+    warning.textContent =
+      "Escreva no minimo um character para criar um sticker.";
   }
 });
 
@@ -138,7 +140,7 @@ function newTask(task) {
 
   let stickerItemText = document.createElement("span");
   stickerItemText.classList.add("sticker-item-text");
-  stickerItemText.innerHTML = task.description;
+  stickerItemText.insertAdjacentHTML("afterbegin", task.description);
   stickerItemText.style = task.colorText;
 
   if (task.status === "done") {
@@ -150,7 +152,10 @@ function newTask(task) {
 
   let doneBtn = document.createElement("button");
   doneBtn.classList.add("done");
-  doneBtn.innerHTML = '<img src="./assets/done.svg" alt="Pin Icon" />';
+  doneBtn.insertAdjacentHTML(
+    "afterbegin",
+    '<img src="./assets/done.svg" alt="Check Icon" />'
+  );
 
   doneBtn.addEventListener("click", function (event) {
     stickerItemText.style.textDecoration = "line-through";
@@ -160,7 +165,10 @@ function newTask(task) {
 
   let deleteBtn = document.createElement("button");
   deleteBtn.classList.add("delete");
-  deleteBtn.innerHTML = '<img src="./assets/trash.svg" alt="Cancel Icon" />';
+  deleteBtn.insertAdjacentHTML(
+    "afterbegin",
+    '<img src="./assets/trash.svg" alt="Trash bin Icon" />'
+  );
 
   deleteBtn.addEventListener("click", function (taskId) {
     let stickerItemCreated = document.getElementById("#" + taskId);
